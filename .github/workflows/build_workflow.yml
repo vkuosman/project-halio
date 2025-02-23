@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Project Build Workflow
 
 on:
   push:
