@@ -41,8 +41,7 @@ jobs:
       - name: Summary
         run: |
           if [ "${{ steps.build.outcome }}" == "success" ]; then
-            echo "::notice::✅ Build process succeeded."
+            echo "✅ Build process succeeded." >> $GITHUB_STEP_SUMMARY
           else
-            echo "::error::❌ Build process failed."
-            echo "::error::Check workflow execution steps."
+            echo "❌ Build process failed." >> $GITHUB_STEP_SUMMARY
           fi
