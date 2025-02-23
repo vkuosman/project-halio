@@ -114,7 +114,7 @@ bool doInputAction(std::string action) {
 
 int main() {
     //playIntro();
-    std::string userInput{"Default"}
+    std::string userInput{"Default"};
     bool gameContinues{true};
     while (gameContinues) {
         std::cout << "\nType an input: ";
