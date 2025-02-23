@@ -22,7 +22,7 @@ jobs:
 
       - name: Build all C++ files
         id: build
-        continue-on-error: true
+        continue-on-error: true # Enable Summary step to be executed in case of fail
         run: |
           # Create an array of available .cpp files
           cpp_files=(${GITHUB_WORKSPACE}/*.cpp)
@@ -40,8 +40,10 @@ jobs:
  
       - name: Summary
         run: |
+          echo "## Project Build Summary" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.build.outcome }}" == "success" ]; then
             echo "✅ Build process succeeded." >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ Build process failed." >> $GITHUB_STEP_SUMMARY
+            exit 1 # Fail the workflow execution
           fi
