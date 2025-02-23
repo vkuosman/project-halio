@@ -45,5 +45,6 @@ jobs:
             echo "✅ Build process succeeded." >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ Build process failed." >> $GITHUB_STEP_SUMMARY
-            exit 1 # Fail the workflow execution
+            echo "Check workflow steps." >> $GITHUB_STEP_SUMMARY
+            false # Fail the workflow execution
           fi
