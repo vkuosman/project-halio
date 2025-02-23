@@ -37,12 +37,12 @@ jobs:
           
           # List available files in the workspace
           ls -l
-
+ 
       - name: Summary
         run: |
           if [ "${{ steps.build.outcome }}" == "success" ]; then
-            echo "✅ Build process succeeded."
+            echo "::notice::✅ Build process succeeded."
           else
-            echo "❌ Build process failed."
-            echo "Check workflow execution steps."
+            echo "::error::❌ Build process failed."
+            echo "::error::Check workflow execution steps."
           fi
