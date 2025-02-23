@@ -25,13 +25,13 @@ jobs:
           # Create an array of available .cpp files
           cpp_files=(${GITHUB_WORKSPACE}/*.cpp)
           
-          # Compile all .cpp file
-          for cpp_file in "${cpp_files[@]}"; do
-            g++ -c "$cpp_file" -o "${cpp_file%.cpp}.o"
+          # Compile all .cpp files
+          for cpp_file in *.cpp; do
+            g++ -c "$cpp_file" -o "${cpp_file%.cpp}.o" || exit 1
           done
           
           # Link the object files into an output executable
-          g++ ${cpp_files[@]/%/.o} -o "${GITHUB_WORKSPACE}/halio.out"
+          g++ *.o -o halio.out
           
           # List available files in the workspace
-          ls -l "${GITHUB_WORKSPACE}"
+          ls -l
